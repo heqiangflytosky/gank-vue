@@ -29,9 +29,17 @@
               <i class="el-icon-menu"></i>
               <span slot="title">前端</span>
             </el-menu-item>
+            <el-menu-item index="/gank/App">
+              <i class="el-icon-menu"></i>
+              <span slot="title">App</span>
+            </el-menu-item>
             <el-menu-item index="/gank/拓展资源">
               <i class="el-icon-menu"></i>
               <span slot="title">拓展资源</span>
+            </el-menu-item>
+            <el-menu-item index="/gank/瞎推荐">
+              <i class="el-icon-menu"></i>
+              <span slot="title">瞎推荐</span>
             </el-menu-item>
             <el-menu-item index="/image">
               <i class="el-icon-menu"></i>
