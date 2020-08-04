@@ -13,7 +13,7 @@
             @select="handleOpen"
             router
           >
-            <el-menu-item index="/gank/Android">
+            <!-- <el-menu-item index="/gank/Android">
               <i class="el-icon-menu"></i>
               <span slot="title">Android</span>
             </el-menu-item>
@@ -40,8 +40,14 @@
             <el-menu-item index="/gank/瞎推荐">
               <i class="el-icon-menu"></i>
               <span slot="title">瞎推荐</span>
+            </el-menu-item> -->
+
+            <el-menu-item v-for="(item) in data" :index="'/gank/'+item.type" :key="item.title">
+              <i class="el-icon-menu"></i>
+              <span slot="title">{{item.title}}</span>
             </el-menu-item>
-            <el-menu-item index="/image">
+
+            <el-menu-item v-if="loaded" index="/image">
               <i class="el-icon-menu"></i>
               <span slot="title">妹纸</span>
             </el-menu-item>
@@ -61,9 +67,34 @@
 <script>
 export default {
   name: "App",
+  data() {
+    return {
+      data: [],
+      loaded: false
+    };
+  },
+  created() {
+    console.log("App created");
+    this.getType();
+  },
   methods: {
     handleOpen(index, indexPath) {
-      console.log("rrr");
+      console.log("handleOpen");
+    },
+    getType() {
+      this.$http.get("https://gank.io/api/v2/categories/GanHuo").then(
+        function(res) {
+          console.log("获取分类");
+          console.log(res.data.data);
+          this.data = this.data.concat(res.data.data);
+          this.loaded = true;
+        },
+        function(res) {
+        }
+      )
+      .catch(function(res) {
+        
+      });
     }
   }
 };

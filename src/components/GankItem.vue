@@ -1,6 +1,7 @@
 <template>
   <div style="text-align: left;">
-    <div style="overflow:hidden;text-overflow: ellipsis;white-space:nowrap;">{{desc}}</div>
+    <div id="title">{{title}}</div>
+    <div id="desc">{{desc}}</div>
     <div style="margin-top:10px;display: flex;align-items: center;">
       <img src="../assets/ic_content_from.png" width="20px" />
       <span class="subTitle">{{who}}</span>
@@ -10,6 +11,24 @@
   </div>
 </template>
 <style scoped>
+#title {
+  overflow:hidden;
+  text-overflow: ellipsis;
+  font-size: 18px;
+  white-space:nowrap;
+}
+#desc {
+  margin-top:5px;
+  height: 40px;
+  font-size: 14px;
+  
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  overflow:hidden;
+  text-overflow: ellipsis;
+  color: rgba(0, 0, 0, 0.8);
+}
 .subTitle {
   margin-left: 5px;
   font-size: 12px;
@@ -18,7 +37,7 @@
 </style>
 <script>
 export default {
-  props: ["desc", "who","publishedTime"],
+  props: ["title", "desc", "who","publishedTime"],
   methods: {
     formatPublishedTime (time) {
       // time 日期格式：2018-09-19T00:00:00.0Z

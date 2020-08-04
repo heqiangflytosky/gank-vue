@@ -5,8 +5,9 @@
       class="gankItem"
       shadow="hover"
       @click.native="onItemClick(item)"
+      :key="item.type"
     >
-      <gankItem :desc="item.desc" :who="item.who" :publishedTime="item.publishedAt"></gankItem>
+      <gankItem :title="item.title" :desc="item.desc" :who="item.author" :publishedTime="item.publishedAt"></gankItem>
     </el-card>
     <div v-if="loaded" class="loadMore" @click="loadMore">查看更多</div>
     <div v-else>正在加载...</div>
@@ -46,13 +47,19 @@ export default {
   methods: {
     getGankList(index) {
       this.$http
-        .get("https://gank.io/api/data/" + this.category + "/10/" + index)
+        //.get("https://gank.io/api/data/" + this.category + "/10/" + index)  // v1 api
+        .get("https://gank.io/api/v2/data/category/GanHuo/type/" + this.category + "/page/" + index + '/count/10')
         .then(
           function(res) {
             console.log(this.category);
             console.log(index);
-            console.log(res.data.results);
-            this.data = this.data.concat(res.data.results);
+            // v1 api
+            //console.log(res.data.results);
+            //this.data = this.data.concat(res.data.results);
+
+            // v2 api
+            console.log(res.data.data); 
+            this.data = this.data.concat(res.data.data);  
             this.onLoaded(true);
           },
           function(res) {
