@@ -12,20 +12,20 @@
 </template>
 <style scoped>
 #title {
-  overflow:hidden;
+  overflow: hidden;
   text-overflow: ellipsis;
   font-size: 18px;
-  white-space:nowrap;
+  white-space: nowrap;
 }
 #desc {
-  margin-top:5px;
+  margin-top: 5px;
   height: 40px;
   font-size: 14px;
-  
+
   display: -webkit-box;
   -webkit-box-orient: vertical;
   -webkit-line-clamp: 2;
-  overflow:hidden;
+  overflow: hidden;
   text-overflow: ellipsis;
   color: rgba(0, 0, 0, 0.8);
 }
@@ -37,9 +37,9 @@
 </style>
 <script>
 export default {
-  props: ["title", "desc", "who","publishedTime"],
+  props: ["title", "desc", "who", "publishedTime"],
   methods: {
-    formatPublishedTime (time) {
+    formatPublishedTime(time) {
       // time 日期格式：2018-09-19T00:00:00.0Z
       // UTC 格式
 

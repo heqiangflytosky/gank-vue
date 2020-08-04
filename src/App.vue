@@ -40,7 +40,7 @@
             <el-menu-item index="/gank/瞎推荐">
               <i class="el-icon-menu"></i>
               <span slot="title">瞎推荐</span>
-            </el-menu-item> -->
+            </el-menu-item>-->
 
             <el-menu-item v-for="(item) in data" :index="'/gank/'+item.type" :key="item.title">
               <i class="el-icon-menu"></i>
@@ -82,19 +82,18 @@ export default {
       console.log("handleOpen");
     },
     getType() {
-      this.$http.get("https://gank.io/api/v2/categories/GanHuo").then(
-        function(res) {
-          console.log("获取分类");
-          console.log(res.data.data);
-          this.data = this.data.concat(res.data.data);
-          this.loaded = true;
-        },
-        function(res) {
-        }
-      )
-      .catch(function(res) {
-        
-      });
+      this.$http
+        .get("https://gank.io/api/v2/categories/GanHuo")
+        .then(
+          function(res) {
+            console.log("获取分类")
+            console.log(res.data.data)
+            this.data = this.data.concat(res.data.data)
+            this.loaded = true
+          },
+          function(res) {}
+        )
+        .catch(function(res) {});
     }
   }
 };
