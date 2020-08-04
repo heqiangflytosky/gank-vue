@@ -12,8 +12,8 @@
         </el-card>
       </el-col>
     </div>
-    <div v-if="loaded" class="loadMore" @click="loadMore">查看更多</div>
-    <div v-else>正在加载...</div>
+    <div v-if="showLoadMore && loaded" id="loadMore" @click="loadMore">查看更多</div>
+    <div v-else-if="showLoadMore">正在加载...</div>
   </div>
 </template>
  
@@ -25,6 +25,8 @@ export default {
       data: [],
       loaded: true,
       currentPage: 0,
+      totalPage: 0,
+      showLoadMore: true,
     };
   },
   created() {
@@ -42,11 +44,23 @@ export default {
   methods: {
     getGankList(index) {
       this.$http
-        .get('http://gank.io/api/data/福利/10/' + index)
+        //.get('https://gank.io/api/data/福利/10/' + index)  // v1接口
+        .get('https://gank.io/api/v2/data/category/Girl/type/Girl/page/' + index + '/count/10')  // v2接口
         .then(function(res) {
-          console.log(res.data.results);
-          this.data = this.data.concat(res.data.results);
-          console.debug(this.data);
+          // v1 接口
+          //console.log(res.data.results);
+          //this.data = this.data.concat(res.data.results);
+
+          // v2 接口
+          console.log(res.data.data);
+          this.data = this.data.concat(res.data.data);
+          this.totalPage = res.data.total_counts;
+          console.log(this.data);
+          console.log(this.data.length);
+          console.log(this.totalPage);
+          this.showLoadMore = this.data.length < this.totalPage;
+          console.log(this.showLoadMore);
+
           this.onLoaded(true);
         },
         function(res) {
@@ -89,7 +103,7 @@ export default {
 .imgItem {
   width: 100%;
 }
-.loadMore:hover {
+#loadMore:hover {
   cursor: pointer;
 }
 </style>

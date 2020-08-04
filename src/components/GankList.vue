@@ -46,7 +46,7 @@ export default {
   methods: {
     getGankList(index) {
       this.$http
-        .get("http://gank.io/api/data/" + this.category + "/10/" + index)
+        .get("https://gank.io/api/data/" + this.category + "/10/" + index)
         .then(
           function(res) {
             console.log(this.category);
