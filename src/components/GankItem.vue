@@ -45,7 +45,7 @@ export default {
 
       let cDate = new Date();
       let curYear = cDate.getFullYear();
-      let curMonth = cDate.getMonth();
+      let curMonth = cDate.getMonth()+1;
       let curDate = cDate.getDate();
       let curHour = cDate.getHours();
       let curMin = cDate.getMinutes();
@@ -53,16 +53,23 @@ export default {
 
       let pDate = new Date(Date.parse(time));
       let pubYear = pDate.getFullYear();
-      let pubMonth = pDate.getMonth();
+      let pubMonth = pDate.getMonth()+1;
       let pubDate = pDate.getDate();
       let pubHour = pDate.getHours();
       let pubMin = pDate.getMinutes();
       let pubSec = pDate.getSeconds();
-
+      
       if (pubYear < curYear) {
+        if (curYear - pubYear === 1 && pubMonth > curMonth) {
+          return curMonth +12 - pubMonth+ "个月前";
+        }
         return curYear - pubYear + "年前";
       } else if (pubMonth < curMonth) {
-        return curMonth - pubMonth + "个月前";
+        if (curMonth - pubMonth === 1 && pubDate > curDate) {
+          return curDate + 30 - pubDate + "天前";
+        }
+        let mis = pubDate > curDate ? 1 : 0;
+        return curMonth - pubMonth  - mis + "个月前";
       } else if (pubDate < curDate) {
         return curDate - pubDate + "天前";
       } else if (pubHour < curHour) {

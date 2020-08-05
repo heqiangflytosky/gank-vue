@@ -49,7 +49,7 @@
 
             <el-menu-item v-if="loaded" index="/image">
               <i class="el-icon-menu"></i>
-              <span slot="title">妹纸</span>
+              <span slot="title">美女</span>
             </el-menu-item>
           </el-menu>
         </div>

@@ -10,7 +10,7 @@ export default new Router({
   routes: [
     {
       path: '/',
-      redirect: '/gank/iOS'
+      redirect: '/gank/Android'
     },
     {
       path: '/gank/:id',

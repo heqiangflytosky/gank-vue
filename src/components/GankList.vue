@@ -14,8 +14,10 @@
         :publishedTime="item.publishedAt"
       ></gankItem>
     </el-card>
-    <div v-if="loaded" class="loadMore" @click="loadMore">查看更多</div>
-    <div v-else>正在加载...</div>
+    <div v-if="data.length > 0" style="margin-top: 20px;margin-bottom: 20px;">
+      <div v-if="loaded" class="loadMore" @click="loadMore">查看更多</div>
+      <div v-else>正在加载...</div>
+    </div>
   </div>
 </template>
 

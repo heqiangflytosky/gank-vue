@@ -28,8 +28,10 @@
         </template>
       </el-col>
     </div>
-    <div v-if="showLoadMore && loaded" id="loadMore" @click="loadMore">查看更多</div>
-    <div v-else-if="showLoadMore">正在加载...</div>
+    <div v-if="data.length > 0" style="margin-top: 20px;margin-bottom: 20px;">
+      <div v-if="showLoadMore && loaded" id="loadMore" @click="loadMore">查看更多</div>
+      <div v-else-if="showLoadMore">正在加载...</div>
+    </div>
   </div>
 </template>
 
