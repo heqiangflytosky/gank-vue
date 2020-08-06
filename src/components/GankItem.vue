@@ -36,6 +36,7 @@
 }
 </style>
 <script>
+/* eslint-disable */
 export default {
   props: ["title", "desc", "who", "publishedTime"],
   methods: {

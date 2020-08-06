@@ -65,6 +65,7 @@
 </template>
 
 <script>
+/* eslint-disable */
 export default {
   name: "App",
   data() {
@@ -86,10 +87,10 @@ export default {
         .get("https://gank.io/api/v2/categories/GanHuo")
         .then(
           function(res) {
-            console.log("获取分类")
-            console.log(res.data.data)
-            this.data = this.data.concat(res.data.data)
-            this.loaded = true
+            console.log("获取分类");
+            console.log(res.data.data);
+            this.data = this.data.concat(res.data.data);
+            this.loaded = true;
           },
           function(res) {}
         )

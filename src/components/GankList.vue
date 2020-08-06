@@ -22,6 +22,7 @@
 </template>
 
 <script>
+/* eslint-disable */
 import gankItem from "@/components/gankItem";
 export default {
   components: {

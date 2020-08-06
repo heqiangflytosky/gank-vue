@@ -17,7 +17,7 @@
                 <div>{{item.title}}</div>
               </div>
             </div> -->
-            <hover_image  class="imgItem" :title="item.title" :desc="item.desc" :url="item.url"/>
+            <hover_image  class="hoverImage" :title="item.title" :desc="item.desc" :url="item.url"/>
           </el-card>
         </template>
       </el-col>
@@ -30,7 +30,7 @@
             @click.native="onItemClick(item)"
             :key="item._id"
           >
-            <hover_image  class="imgItem" :title="item.title" :desc="item.desc" :url="item.url"/>
+            <hover_image  class="hoverImage" :title="item.title" :desc="item.desc" :url="item.url"/>
           </el-card>
         </template>
       </el-col>
@@ -50,23 +50,23 @@
 .imgCard {
   margin-bottom: 5px;
 }
-.imgCard :hover {
+.imgCard:hover {
   cursor: pointer;
 }
-.imgItem {
+.hoverImage {
   position:relative;
 }
 #loadMore:hover {
   cursor: pointer;
 }
 
-.imgCard :hover .mask{
+.imgCard:hover .mask{
   display: flex;
 }
 </style>
 
 <script>
-
+/* eslint-disable */
 import hover_image from "@/components/hover-image";
 
 export default {

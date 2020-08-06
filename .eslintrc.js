@@ -24,6 +24,12 @@ module.exports = {
     // allow async-await
     'generator-star-spacing': 'off',
     // allow debugger during development
-    'no-debugger': process.env.NODE_ENV === 'production' ? 'error' : 'off'
+    'no-debugger': process.env.NODE_ENV === 'production' ? 'error' : 'off',
+    // 不检查行尾分号  Extra semicolon"错误的解决
+    'semi': 0,
+    // 方法名和括号之间的空格 Missing space before function parentheses
+    "space-before-function-paren": 0,
+    // Strings must use singlequote 的报错
+    "quotes": [1, "single"],
   }
 }
