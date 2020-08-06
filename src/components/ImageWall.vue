@@ -10,7 +10,14 @@
             @click.native="onItemClick(item)"
             :key="item._id"
           >
-            <img class="imgItem" :src="item.url" />
+            <!-- <div class="imgItem">
+              <img class="imgItem" :src="item.url" />
+              <div class="mask">
+                <div>{{item.desc}}</div>
+                <div>{{item.title}}</div>
+              </div>
+            </div> -->
+            <hover_image  class="imgItem" :title="item.title" :desc="item.desc" :url="item.url"/>
           </el-card>
         </template>
       </el-col>
@@ -23,7 +30,7 @@
             @click.native="onItemClick(item)"
             :key="item._id"
           >
-            <img class="imgItem" :src="item.url" />
+            <hover_image  class="imgItem" :title="item.title" :desc="item.desc" :url="item.url"/>
           </el-card>
         </template>
       </el-col>
@@ -35,7 +42,33 @@
   </div>
 </template>
 
+<style>
+.wall {
+  width: 60%;
+  display: inline-block;
+}
+.imgCard {
+  margin-bottom: 5px;
+}
+.imgCard :hover {
+  cursor: pointer;
+}
+.imgItem {
+  position:relative;
+}
+#loadMore:hover {
+  cursor: pointer;
+}
+
+.imgCard :hover .mask{
+  display: flex;
+}
+</style>
+
 <script>
+
+import hover_image from "@/components/hover-image";
+
 export default {
   data() {
     return {
@@ -46,6 +79,9 @@ export default {
       totalPage: 0,
       showLoadMore: true
     };
+  },
+  components: {
+    hover_image
   },
   created() {
     this.category = this.$route.path;
@@ -113,21 +149,3 @@ export default {
   }
 };
 </script>
-<style>
-.wall {
-  width: 60%;
-  display: inline-block;
-}
-.imgCard {
-  margin-bottom: 5px;
-}
-.imgCard :hover {
-  cursor: pointer;
-}
-.imgItem {
-  width: 100%;
-}
-#loadMore:hover {
-  cursor: pointer;
-}
-</style>
