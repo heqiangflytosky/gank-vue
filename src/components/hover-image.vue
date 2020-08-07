@@ -27,6 +27,7 @@
   text-align: start;
 
   display: none;
+
 }
 </style>
 

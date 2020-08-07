@@ -106,7 +106,7 @@ export default {
 
 <style scoped>
 .gankItem {
-  width: 80%;
+  width: 100%;
   display: inline-block;
 }
 .gankItem:hover {

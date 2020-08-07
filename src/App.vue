@@ -1,10 +1,10 @@
 <template>
   <div id="app">
     <el-row :gutter="10">
-      <el-col :span="2" style="width:10%;">
+      <el-col :span="2" id="gank-menu">
         <div>
           <el-menu
-            class="el-menu-vertical-demo"
+            id="el-menu-vertical"
             theme="dark"
             background-color="#545c64"
             text-color="#fff"
@@ -54,7 +54,7 @@
           </el-menu>
         </div>
       </el-col>
-      <el-col :span="22" style="width:90%;">
+      <el-col :span="16" id="gank-content">
         <div class="gank">
           <router-view></router-view>
         </div>
@@ -81,6 +81,8 @@ export default {
   methods: {
     handleOpen(index, indexPath) {
       console.log("handleOpen");
+      // 滚动到页面最前端
+      document.body.scrollTop=document.documentElement.scrollTop=0;
     },
     getType() {
       this.$http
@@ -103,5 +105,14 @@ export default {
 <style>
 #app {
   margin-top: 10px;
+}
+#el-menu-vertical {
+  position: fixed;
+}
+#gank-menu{
+  margin-left:1%;
+}
+#gank-content{
+  margin-left:20%;
 }
 </style>
