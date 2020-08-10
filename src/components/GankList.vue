@@ -112,6 +112,11 @@ export default {
 .gankItem:hover {
   cursor: pointer;
 }
+.loadMore {
+  background-color: #f3f3f3;
+  text-align: center;
+  line-height: 40px;
+}
 .loadMore:hover {
   cursor: pointer;
 }

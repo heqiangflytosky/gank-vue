@@ -1,7 +1,7 @@
 <template>
   <div style="width:100%;text-align: center;">
     <div class="wall">
-      <el-col :span="12">
+      <el-col span="12">
         <template v-for="(item,index) in data">
           <el-card
             class="imgCard"
@@ -21,7 +21,7 @@
           </el-card>
         </template>
       </el-col>
-      <el-col :span="12">
+      <el-col span="12">
         <template v-for="(item,index) in data">
           <el-card
             class="imgCard"
@@ -61,7 +61,8 @@
 }
 
 .imgCard:hover .mask{
-  display: flex;
+  visibility: visible;
+  opacity: 1;
 }
 </style>
 

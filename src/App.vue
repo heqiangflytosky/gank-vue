@@ -2,9 +2,11 @@
   <div id="app">
     <el-row :gutter="10">
       <el-col :span="2" id="gank-menu">
-        <div>
+        <div id="el-menu-vertical">
+          <img id="gank-logo"
+            src="https://ae01.alicdn.com/kf/U7e32bca8bf0f4b43a28ea2da54e9cedaZ.jpg"
+            @click="toGank" />
           <el-menu
-            id="el-menu-vertical"
             theme="dark"
             background-color="#545c64"
             text-color="#fff"
@@ -82,7 +84,7 @@ export default {
     handleOpen(index, indexPath) {
       console.log("handleOpen");
       // 滚动到页面最前端
-      document.body.scrollTop=document.documentElement.scrollTop=0;
+      document.body.scrollTop = document.documentElement.scrollTop = 0;
     },
     getType() {
       this.$http
@@ -97,6 +99,9 @@ export default {
           function(res) {}
         )
         .catch(function(res) {});
+    },
+    toGank() {
+      window.open("https://gank.io/");
     }
   }
 };
@@ -109,10 +114,17 @@ export default {
 #el-menu-vertical {
   position: fixed;
 }
-#gank-menu{
-  margin-left:1%;
+#gank-menu {
+  margin-left: 1%;
 }
-#gank-content{
-  margin-left:20%;
+#gank-content {
+  margin-left: 20%;
+}
+#gank-logo {
+  max-height: 50px; 
+  margin-left:12px;
+}
+#gank-logo:hover {
+  cursor: pointer;
 }
 </style>

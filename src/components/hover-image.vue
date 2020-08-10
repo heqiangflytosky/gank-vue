@@ -22,12 +22,15 @@
   background: linear-gradient(#00000000, #00000000, #0000005f);
   color: white;
 
+  display: flex;
   flex-direction: column;
   justify-content: end;
   text-align: start;
 
-  display: none;
-
+  visibility: hidden;
+  /* 淡入 - 1秒内从 0% 到 100% 显示: */
+  opacity: 0;
+  transition: opacity 1s;
 }
 </style>
 
