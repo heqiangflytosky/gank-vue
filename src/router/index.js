@@ -1,8 +1,8 @@
 import Vue from 'vue'
 import Router from 'vue-router'
 // import HelloWorld from '@/components/HelloWorld'
-import GankList from '@/components/GankList'
-import ImageWall from '@/components/ImageWall'
+import GankList from '@/views/GankList'
+import ImageWall from '@/views/ImageWall'
 
 Vue.use(Router)
 

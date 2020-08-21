@@ -15,35 +15,6 @@
             @select="handleOpen"
             router
           >
-            <!-- <el-menu-item index="/gank/Android">
-              <i class="el-icon-menu"></i>
-              <span slot="title">Android</span>
-            </el-menu-item>
-            <el-menu-item index="/gank/iOS">
-              <i class="el-icon-menu"></i>
-              <span slot="title">iOS</span>
-            </el-menu-item>
-            <el-menu-item index="/gank/休息视频">
-              <i class="el-icon-menu"></i>
-              <span slot="title">休息视频</span>
-            </el-menu-item>
-            <el-menu-item index="/gank/前端">
-              <i class="el-icon-menu"></i>
-              <span slot="title">前端</span>
-            </el-menu-item>
-            <el-menu-item index="/gank/App">
-              <i class="el-icon-menu"></i>
-              <span slot="title">App</span>
-            </el-menu-item>
-            <el-menu-item index="/gank/拓展资源">
-              <i class="el-icon-menu"></i>
-              <span slot="title">拓展资源</span>
-            </el-menu-item>
-            <el-menu-item index="/gank/瞎推荐">
-              <i class="el-icon-menu"></i>
-              <span slot="title">瞎推荐</span>
-            </el-menu-item>-->
-
             <el-menu-item v-for="(item) in data" :index="'/gank/'+item.type" :key="item.title">
               <i class="el-icon-menu"></i>
               <span slot="title">{{item.title}}</span>
