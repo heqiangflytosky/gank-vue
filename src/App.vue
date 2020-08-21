@@ -84,7 +84,7 @@ export default {
     handleOpen(index, indexPath) {
       console.log("handleOpen");
       // 滚动到页面最前端
-      document.body.scrollTop = document.documentElement.scrollTop = 0;
+      //document.body.scrollTop = document.documentElement.scrollTop = 0;
     },
     getType() {
       this.$http

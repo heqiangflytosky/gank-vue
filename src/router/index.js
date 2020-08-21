@@ -20,5 +20,8 @@ export default new Router({
       path: '/image',
       component: ImageWall
     }
-  ]
+  ],
+  scrollBehavior (to, from, savedPosition) {
+    return { x: 0, y: 0 }
+  }
 })
